@@ -1,7 +1,8 @@
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
-  , LocalStrategy = require('passport-local').Strategy;
+  , LocalStrategy = require('passport-local').Strategy
+  , routes = require('./routes');
   
 
 var users = [
@@ -86,10 +87,14 @@ app.configure(function() {
   // persistent login sessions (recommended).
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use(require('stylus').middleware({ src: __dirname + '/public' }));
   app.use(app.router);
-  app.use(express.static(__dirname + '/../../public'));
+  // app.use(express.static(__dirname + '/../../public'));
+  app.use(express.static(__dirname + '/public'));
 });
 
+
+// app.get('/', routes.index);
 
 app.get('/', function(req, res){
   res.render('index', { user: req.user });
