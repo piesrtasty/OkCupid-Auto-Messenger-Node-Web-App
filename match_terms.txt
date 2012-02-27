@@ -1,0 +1,2 @@
+Special Blend = SPECIAL_BLEND
+Who's New = JOIN

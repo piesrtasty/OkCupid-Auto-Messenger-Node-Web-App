@@ -32,8 +32,14 @@ window.onload = function () {
       // Creates canvas 
       var paper = Raphael(myDiv, 100, 100);
 
+// var solidheart = "M 58,17 C 52,7 42,0 30,0 C 13,0 0,13 0,30 C 0,63 18,68 58,106 C 98,68 116,63 116,30 C 116,13 103,0 86,0 C 74,0 64,7 58,17 z";
 var solidheart = "M 58,17 C 52,7 42,0 30,0 C 13,0 0,13 0,30 C 0,63 18,68 58,106 C 98,68 116,63 116,30 C 116,13 103,0 86,0 C 74,0 64,7 58,17 z";
-c = paper.path(solidheart).attr({fill: "#ff0707", stroke: "none", scale: "0.5 0.5"}).click(heartbeat);
+
+c = paper.path(solidheart).attr({fill: "#ff0707", stroke: "none", scale: ".5 .5"}).click(heartbeat);
+
+// c = paper.path(solidheart).attr({fill: "#ff0707", stroke: "none", scale: ".9 .9"})
+
+
 
 heartbeat();
 

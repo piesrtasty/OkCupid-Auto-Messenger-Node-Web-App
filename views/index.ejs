@@ -1,5 +1,13 @@
 <% if (!user) { %>
-	<h2>Welcome! Please log in.</h2>
+
 <% } else { %>
 	<h2>Hello, <%= user.username %>.</h2>
 <% } %>
+
+
+<a id="start-btn" class="btn btn-primary btn-large">Start</a>
+
+<br />
+<br />
+
+<a id="copy-inbox-btn" class="btn btn-primary btn-large">Copy Inbox</a>

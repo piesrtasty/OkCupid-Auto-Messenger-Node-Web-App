@@ -1,8 +1,11 @@
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
+  , mongoose = require('mongoose')  
   , LocalStrategy = require('passport-local').Strategy
-  , routes = require('./routes');
+  , routes = require('./routes')
+  , OkCupidUser = require('./models/okcupiduser.js')
+  , OkCupid = require('./okcupid.js').OkCupid;
   
 
 var users = [
@@ -94,6 +97,11 @@ app.configure(function() {
 });
 
 
+// connect to Mongo when the app initializes
+mongoose.connect('mongodb://localhost/okcupid');
+console.log("got here")
+var OkCupid = new OkCupid();
+
 // app.get('/', routes.index);
 
 app.get('/', function(req, res){
@@ -119,7 +127,27 @@ app.post('/login',
     res.redirect('/');
   });
 
-app.get('/logout', function(req, res){
+app.post('/start', function (req, res)  {
+  console.log("initializing okcupid");
+  // setInterval("OkCupid.init();", 5000);
+  // setInterval(OkCupid.init(), 5000);
+
+  // var i = 0;
+  // console.log(i); 
+  // while ( i < 100)  {
+    OkCupid.init();  
+    // i++;  
+  // }
+  
+
+});
+
+app.post('/copyinbox', function (req, res)  {
+  console.log("starting inbox copy");
+  OkCupid.copyInbox();
+});
+
+app.get('/logout', function (req, res){
   req.logout();
   res.redirect('/');
 });
