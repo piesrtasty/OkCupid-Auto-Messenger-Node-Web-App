@@ -4,6 +4,27 @@
 	<h2>Hello, <%= user.username %>.</h2>
 <% } %>
 
+<br/>
+
+	<form method="post" action="/sort">
+		<select name="sort_by">
+			<option value="MATCH">Match %</option>
+			<option value="FRIEND">Friend %</option>
+			<option value="ENEMY">Enemy %</option>
+			<option value="JOIN">Who's new</option>
+			<option value="LOGIN">Last online</option>
+			<option value="SPECIAL_BLEND">Special blend</option>
+			<option value="MATCH_AND_NEW">Match & new</option>
+			<option value="MATCH_AND_LOGIN">Match & last online</option>
+			<option value="MATCH_AND_DISTANCE">Match & distance</option>
+		</select>
+		<br/>
+		<input class="btn btn-primary" type="submit"/>
+
+	</form>
+
+<br/>
+
 
 <a id="start-btn" class="btn btn-primary btn-large">Start</a>
 
@@ -11,3 +32,14 @@
 <br />
 
 <a id="copy-inbox-btn" class="btn btn-primary btn-large">Copy Inbox</a>
+
+<!--Match % = MATCH
+Friend % = FRIEND
+Enemy % = ENEMY
+Who's new = JOIN
+Last online = LOGIN
+Special Blend = SPECIAL_BLEND
+Match & new = MATCH_AND_NEW
+Match & last online = MATCH_AND_LOGIN
+Match & distance = MATCH_AND_DISTANCE-->
+

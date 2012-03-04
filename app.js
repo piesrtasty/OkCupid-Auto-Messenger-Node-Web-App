@@ -128,7 +128,7 @@ app.post('/login',
   });
 
 app.post('/start', function (req, res)  {
-  console.log("initializing okcupid");
+  
   // setInterval("OkCupid.init();", 5000);
   // setInterval(OkCupid.init(), 5000);
 
@@ -138,8 +138,12 @@ app.post('/start', function (req, res)  {
     OkCupid.init();  
     // i++;  
   // }
-  
+});
 
+app.post("/sort", function (req, res)  {
+  var sortByType = req.body.sort_by;
+  console.log("initializing okcupid for sort by type: " + sortByType);
+  OkCupid.init(sortByType);
 });
 
 app.post('/copyinbox', function (req, res)  {
