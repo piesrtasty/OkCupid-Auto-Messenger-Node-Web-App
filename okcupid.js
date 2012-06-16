@@ -20,7 +20,7 @@ OkCupid.prototype.copyInbox = function()  {
   request({
     url: "http://www.okcupid.com/login",
     method: "post",
-    body: "p=&dest=&username=virtuallyghetto&password=shutup%211",
+    body: "p=&dest=&username={{ YOUR USERNAME }}&password={{ YOUR PASSWORD }}",
     headers: {
       'Content-type' : 'application/x-www-form-urlencoded'
     }
